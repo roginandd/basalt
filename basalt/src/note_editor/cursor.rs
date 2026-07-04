@@ -140,7 +140,7 @@ pub fn source_offset_to_virtual_column<'a>(offset: usize, line: &VirtualLine<'a>
     virtual_col.break_value()
 }
 
-fn snap_to_char_boundary(text: &str, offset: usize) -> usize {
+pub(crate) fn snap_to_char_boundary(text: &str, offset: usize) -> usize {
     let offset = offset.min(text.len());
     (offset..=text.len())
         .find(|&i| text.is_char_boundary(i))
